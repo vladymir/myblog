@@ -1,0 +1,57 @@
+body {
+    background: url('../img/background0.jpg') repeat scroll 50% 0;
+    /*background: url('../img/menu.png') repeat scroll 50% 0;*/
+}
+.navbar-inner {
+  background-color: #000; /* background color will be black for all browsers */
+  background-image: none;
+  background-repeat: no-repeat;
+}
+
+#modal {
+    width: 938px;
+    border: 1px solid #CCC;
+    box-shadow: 0 1px 5px #CCC;
+    border-radius: 5px;
+    font-family: verdana;
+    margin: 25px auto;
+    overflow: hidden;
+    background-color: white;
+  }
+  #modal header {
+    background: #f1f1f1;
+    background-image: -webkit-linear-gradient( top, #f1f1f1, #CCC );
+    background-image: -ms-linear-gradient( top, #f1f1f1, #CCC );
+    background-image: -moz-linear-gradient( top, #f1f1f1, #CCC );
+    background-image: -o-linear-gradient( top, #f1f1f1, #CCC );
+    box-shadow: 0 1px 2px #888;
+    padding: 10px;
+  }
+  #modal h1 {
+    padding: 0;
+    margin: 0;
+    text-shadow: 0 1px 2px white;
+    color: #888;
+    text-align: center;
+  }
+  #modal section {
+    padding: 10px 30px; 
+    font-size: 12px;
+    line-height: 175%;
+    color: #333;
+  }
+
+h6 {
+  border-bottom: thin dotted black;
+}
+  /*.container #modal img {
+  	width: 100%;
+  }
+
+  .span8 #modal {
+  	width: 658px !important; 
+  }
+
+  .span4 #modal {
+  	width: 282px !important;
+  }*/

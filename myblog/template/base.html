@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+{% load i18n %}
+{% block title %}
+        <title>Vlads Place</title>
+{% endblock %}
+
+{% block head %}
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="../static/css/custom.css"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css"/>
+	<link rel="shortcut icon" href="../static/img/favicon.png" type="image/png" />
+</head>
+{% endblock %}
+
+{% block header %}
+<div class="container">
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<a class="brand" href="{% url index %}"><img src="../static/img/menu.png">Vladymir Bezerra</a>
+			<ul class="nav">
+				<li class="active"><a href="{% url index %}">Home</a></li>
+				<li><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<br><br><br>
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+<footer>
+	<div class="modal-footer">
+
+		<p>&nbsp; Todos os direitos reservados &copy; 2012. Vladymir Bezerra</p>
+
+	</div>
+</footer>
+</html>
+{% endblock %}

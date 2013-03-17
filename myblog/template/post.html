@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+	<div id="modal">
+		<img src="../static/img/banner.png"><br>
+		<div class="span8">
+			<br>
+			<div class="well">
+				<a href="{{ post.get_absolute_url }}"><h2>{{ post.title }}</h2></a>
+			</div>
+			
+			<div class="well">
+
+				{{ post.text|safe }}
+			</div>
+		</div>
+		<div class="span3">
+			<br>
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">Data de publicacao</li>
+						{{ post.pub_date }}
+						<li class="nav-header">Advertisements</li>
+						<li>ad1</li>
+						<li>ad2</li>
+					</ul>
+				</div>
+		</div>
+		<div class="span8">
+			<br>
+			<div class="well">
+				<h4>Comentários: ({{ len_comments }})</h4>
+				{% for comment in comments %}
+				<div class="well">
+				<label>Author:<label>
+					{% if not comment.author %}
+					<p>Anonymous</p>
+					{% else %}
+					<p>{{comment.author}}</p>
+					{% endif %}
+				Comentario:
+				<p>{{comment.comment}}</p>
+				</div>
+				{% endfor %}
+				<br>
+				<div class="well">
+				<form method="POST" action="{{post.get_absolute_url}}">{% csrf_token %}
+					<div>{{ comment_form }}</div>
+					<input size=60 type="submit" value="Comentar" class="btn btn-primary">
+				</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+{% endblock %}

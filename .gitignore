@@ -1,0 +1,6 @@
+*.pyc
+fts
+.idea
+*.db
+*.old
+*.sqlite

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+	<div class="container">
+		<div id="modal">
+			<img src="../static/img/banner.png"><br>
+			<div class="span8">
+				<br>
+				{% for post in posts %}
+				<div class="well">				
+					<h2>{{ post.title }}</h2>
+					<h6>{{ post.pub_date }}</h6>
+					{{ post.text|safe|linebreaks|truncatewords:30 }}
+					<p>{% ifnotequal post.text note.text|truncatewords:30 %}
+						<a class="readmore" href="{% url index %}">read more...</a>
+						{%endifnotequal%}
+					</p>
+				</div>
+				<br>
+				{% endfor %}
+				
+			</div>
+			<div class="span3">
+				<br>
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">About Me</li>
+						<li>Author Data</li>
+						<li class="nav-header">Recent Posts</li>
+						{% for link in recent%}
+						<li>{{link.title}}</li>
+						{% endfor %}
+						<li class="nav-header">Advertisements</li>
+						<li>ad1</li>
+						<li>ad2</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
