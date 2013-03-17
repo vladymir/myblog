@@ -4,3 +4,4 @@ fts
 *.db
 *.old
 *.sqlite
+migrations

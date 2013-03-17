@@ -15,10 +15,9 @@
 {% endblock %}
 
 {% block header %}
-<div class="container">
-	<div class="navbar navbar-fixed-top">
+	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
-			<a class="brand" href="{% url index %}"><img src="../static/img/menu.png">Vladymir Bezerra</a>
+			<a class="brand" href="{% url index %}">Vladymir Bezerra     <img src="../static/img/menu.png"></a>
 			<ul class="nav">
 				<li class="active"><a href="{% url index %}">Home</a></li>
 				<li><a href="#">Link</a></li>
@@ -26,7 +25,6 @@
 			</ul>
 		</div>
 	</div>
-</div>
 <br><br><br>
 {% endblock %}
 
