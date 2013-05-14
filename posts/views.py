@@ -9,7 +9,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
 	posts = Post.objects.filter(status__exact='PUBLISHED').order_by('-pub_date')
-	paginator = Paginator(posts, 1)
+	paginator = Paginator(posts, 10)
 	recent = posts[:3]
 	page = request.GET.get('page')
 	try:
