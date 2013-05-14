@@ -5,11 +5,21 @@ from django.template import RequestContext
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.core.exceptions import ObjectDoesNotExist
 from posts.forms import CommentForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
 	posts = Post.objects.filter(status__exact='PUBLISHED').order_by('-pub_date')
+	paginator = Paginator(posts, 1)
 	recent = posts[:3]
-	context_var = RequestContext(request, {'posts' : posts, 'recent':recent})
+	page = request.GET.get('page')
+	try:
+		this_posts = paginator.page(page)
+	except PageNotAnInteger:
+		this_posts = paginator.page(1)
+	except EmptyPage:
+		this_posts = paginator.page(paginator.num_pages)
+
+	context_var = RequestContext(request, {'posts' : this_posts, 'recent':recent})
 	return render_to_response('index.html', context_var)
 
 def view_post(request, slug=None):

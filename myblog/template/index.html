@@ -2,25 +2,41 @@
 {% load i18n %}
 
 {% block content %}
-<div class="container">
-	<div class="container">
-		<div id="modal">
+<div class="container-fluid">
+
+		<div class="row-fluid" id="modal">
 			<img src="../static/img/banner.png"><br>
 			<div class="span8">
 				<br>
 				{% for post in posts %}
-				<div class="well">				
+				<div class="well">		
 					<a href="{{post.get_absolute_url}}"><h2>{{ post.title }}</h2></a>
 					<h6>{{ post.pub_date }}</h6>
-					{{ post.text|safe|linebreaks|truncatewords:50 }}
-					<p>{% ifnotequal post.text note.text|truncatewords:50 %}
+					{{ post.text|safe|linebreaks|truncatewords:100 }}
+					<p>{% ifnotequal post.text note.text|truncatewords:100 %}
 						<a class="readmore" href="{{post.get_absolute_url}}">read more...</a>
 						{%endifnotequal%}
 					</p>
 				</div>
 				<br>
 				{% endfor %}
-				
+				<div class="pagination">
+					<ul>
+						{% if posts.has_previous %}
+						<li><a href="?page={{posts.previous_page_number}}">Prev</a></li>
+						{% endif %}
+						{% for num in posts.paginator.page_range %}
+						{% if posts.number == num %}
+						<li><a href="?page={{num}}"><b>{{ num }}</b></a></li>
+						{% else %}
+						<li><a href="?page={{num}}">{{ num }}</a></li>
+						{% endif %}
+						{% endfor %}
+						{% if posts.number < posts.paginator.num_pages%}
+						<li><a href="?page={{posts.next_page_number}}">Next</a></li>
+						{% endif %}
+					</ul>
+				</div>
 			</div>
 			<div class="span3">
 				<br>
@@ -38,7 +54,8 @@
 					</ul>
 				</div>
 			</div>
+			
 		</div>
-	</div>
+
 </div>
 {% endblock %}

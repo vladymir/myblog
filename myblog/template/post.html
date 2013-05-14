@@ -31,16 +31,16 @@
 		<div class="span8">
 			<br>
 			<div class="well">
-				<h4>Comentários: ({{ len_comments }})</h4>
+				<h4><b>Comentários: ({{ len_comments }})</b></h4>
 				{% for comment in comments %}
 				<div class="well">
-				<label>Author:<label>
+				<label><b>Author:</b><label>
 					{% if not comment.author %}
 					<p>Anonymous</p>
 					{% else %}
 					<p>{{comment.author}}</p>
 					{% endif %}
-				Comentario:
+				<b>Comentario:</b>
 				<p>{{comment.comment}}</p>
 				</div>
 				{% endfor %}
